@@ -1,0 +1,21 @@
+.reveal .circle {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 50px;
+}
+
+
+/* @keyframes in Reveal.js live coding plugin don't work properly */
+
+@keyframes fade-out-in {
+    0% { opacity: 1; }
+   50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+  100% { opacity: 0; }
+}

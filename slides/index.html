@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, max-scale=1, user-scalable=0">
+
+    <title>Animating loading spinners with CSS | SydCSS Talk</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Presentation styles -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- SLIDE 1: Intro -->
+        <section>
+          <h1>Animating loading spinners with CSS</h1>
+          <hr>
+          <p>
+            <strong>Ben Booth</strong><br>
+            Blake eLearning<br>
+            <a href="https://twitter.com/bkbooth11" target="_blank">@bkbooth11</a><br>
+            <a href="https://bkbooth.me" target="_blank">bkbooth.me</a>
+          </p>
+        </section>
+        <!-- /SLIDE 1 -->
+
+        <!-- SLIDE 2: Photos of Millie -->
+        <section>
+          <section><img data-src="images/millie-cute.jpg"></section>
+          <section><img data-src="images/millie-cranky.jpg"></section>
+        </section>
+        <!-- /SLIDE 2 -->
+
+        <!-- SLIDE 3: Topic intro -->
+        <section>
+          Topic intro
+        </section>
+        <!-- /SLIDE 3 -->
+
+        <!-- SLIDE 4: Animation 1 - fading -->
+        <section>
+          Animation 1: Fading
+          <section>
+            <pre><code class="liveCoding css" data-livecoding-id="fading-1" contenteditable>
+              @keyframes fade-out-in {
+                  0% { opacity: 1; }
+                 50% { opacity: 0; }
+                100% { opacity: 1; }
+              }
+
+              .circle {
+                animation: 1s fade-out-in infinite;
+              }
+            </code></pre>
+
+            <div id="fading-1">
+              <div class="circle"></div>
+            </div>
+          </section>
+
+          <section>
+            <pre><code class="liveCoding css" data-livecoding-id="fading-2" contenteditable>
+              @keyframes fade-out {
+                  0% { opacity: 1; }
+                100% { opacity: 0; }
+              }
+
+              .circle {
+                animation: 0.5s fade-out infinite alternate;
+              }
+            </code></pre>
+
+            <div id="fading-2">
+              <div class="circle"></div>
+            </div>
+          </section>
+        </section>
+        <!-- /SLIDE 4 -->
+
+        <!-- SLIDE 5: Animation 2 - spinning -->
+        <section>
+          Animation 2: Spinning
+          <section>Spinning (square or star?)</section>
+          <section>Spinning array of dots</section>
+          <section>Spinning (doge face or funny?)</section>
+          <section>Spinning concentric circles</section>
+        </section>
+        <!-- /SLIDE 5 -->
+
+        <!-- SLIDE 6: Animation 3 - pulsing -->
+        <section>
+          Animation 3: Pulsing
+          <section>Pulsing dots. single `keyframes` at-rule</section>
+          <section>Example of pulsing dots code in SASS</section>
+          <section>Pulsing dots. multiple `keyframes` at-rule's</section>
+        </section>
+        <!-- /SLIDE 6 -->
+
+        <!-- SLIDE 7: Animation 4 - bouncing -->
+        <section>
+          Animation 4: Bouncing
+          <section>Single bouncing dot</section>
+          <section>Series of bouncing dots</section>
+        </section>
+        <!-- /SLIDE 7 -->
+
+        <!-- SLIDE 8: Browser support -->
+        <section>
+          Browser support
+        </section>
+        <!-- /SLIDE 8 -->
+
+        <!-- SLIDE 9: Follow-up links -->
+        <section>
+          Follow-up links
+        </section>
+        <!-- /SLIDE 9 -->
+
+        <!-- SLIDE 10: Thanks -->
+        <section>
+          Thanks
+        </section>
+        <!-- /SLIDE 10 -->
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
