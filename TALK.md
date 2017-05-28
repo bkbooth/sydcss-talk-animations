@@ -40,8 +40,6 @@ _(SLIDE 5b)_
 
 _(SLIDE 5c)_
 
-_(SLIDE 5d)_
-
 We can also do more advanced animations without introducing any new properties but just building on what we already know, these are just concentric circles with a dot moving around each, because rotating circles aren't exactly exciting on their own. The second circle is just reversing the same animation as the other two.
 
 ## Animation 3 - pulsing series of dots
@@ -53,10 +51,6 @@ For this pulsing series of dots I've made the `keyframes` at-rule slightly more 
 _(SLIDE 6b)_
 
 If you're using SASS or something similar, you can simplify it with something like this. I've set the overall animation duration in a variable, then loop over each of the dots with a `for` loop and calculate the offset for each dot.
-
-_(SLIDE 6c)_
-
-We can also introduce the concept of multiple animations. If we make 'fade' and 'pulse' separate primitive `keyframes` at-rules then we can move the actual timing logic of the animation to the `animation` properties.
 
 ## Animation 4 - bouncing dots
 

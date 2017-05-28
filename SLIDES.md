@@ -7,14 +7,12 @@
   * a: fading dot. 0%, 50%, 100% steps
   * b: fading dot. 0%, 100% steps with 'alternate' in animation-direction
 * SLIDE 5:
-  * a: spinning (square or star?)
-  * b: spinning array of dots
-  * c: spinning (doge face or funny?)
-  * d: concentric circles
+  * a: spinning star
+  * b: concentric circles
+  * c: spinning doge face
 * SLIDE 6:
-  * a: pulsing dots. single `keyframes` at-rule
+  * a: pulsing dots
   * b: example of pulsing dots code in SASS
-  * c: pulsing dots. multiple `keyframes` at-rule's
 * SLIDE 7:
   * a: single bouncing dot
   * b: series of bouncing dots
