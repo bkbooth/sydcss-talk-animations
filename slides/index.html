@@ -49,15 +49,15 @@
           Animation 1: Fade
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="fading-1" contenteditable>
-              @keyframes fade-out-in {
-                  0% { opacity: 1; }
-                 50% { opacity: 0; }
-                100% { opacity: 1; }
-              }
+@keyframes fade-out-in {
+    0% { opacity: 1; }
+   50% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-              .circle {
-                animation: 1s fade-out-in infinite;
-              }
+.circle {
+  animation: 1s fade-out-in infinite;
+}
             </code></pre>
 
             <div id="fading-1" class="code-preview">
@@ -67,14 +67,14 @@
 
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="fading-2" contenteditable>
-              @keyframes fade-out {
-                  0% { opacity: 1; }
-                100% { opacity: 0; }
-              }
+@keyframes fade-out {
+    0% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
-              .circle {
-                animation: 0.5s fade-out infinite alternate;
-              }
+.circle {
+  animation: 0.5s fade-out infinite alternate;
+}
             </code></pre>
 
             <div id="fading-2" class="code-preview">
@@ -89,14 +89,14 @@
           Animation 2: Spin
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="spinning-1" contenteditable>
-              @keyframes rotate {
-                  0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-              }
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
-              .star {
-                animation: 2.5s linear rotate infinite;
-              }
+.star {
+  animation: 2.5s linear rotate infinite;
+}
             </code></pre>
 
             <div id="spinning-1" class="code-preview">
@@ -106,12 +106,12 @@
 
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="spinning-2" contenteditable>
-              .circle-1 {
-                animation: 60s linear rotate infinite;
-              }
-              .circle-2 {
-                animation: 1s linear rotate infinite;
-              }
+.circle-1 {
+  animation: 60s linear rotate infinite;
+}
+.circle-2 {
+  animation: 1s linear rotate infinite;
+}
             </code></pre>
 
             <div id="spinning-2" class="code-preview">
@@ -124,9 +124,9 @@
 
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="spinning-3" contenteditable>
-              .doge {
-                animation: 1.5s linear rotate infinite;
-              }
+.doge {
+  animation: 1.5s linear rotate infinite;
+}
             </code></pre>
 
             <div id="spinning-3" class="code-preview">
@@ -143,38 +143,22 @@
           Animation 3: Chase
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="chase-1" contenteditable>
-              @keyframes fade-in {
-                  0% { opacity: 0.2; }
-                100% { opacity: 1; }
-              }
+@keyframes fade-in {
+    0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
 
-              [class^=dot-] {
-                animation: 0.5s ease-in fade-in infinite alternate;
-              }
-              .dot-1 {
-                animation-delay: 0s;
-              }
-              .dot-2 {
-                animation-delay: 125ms;
-              }
-              .dot-3 {
-                animation-delay: 250ms;
-              }
-              .dot-4 {
-                animation-delay: 375ms;
-              }
-              .dot-5 {
-                animation-delay: 500ms;
-              }
-              .dot-6 {
-                animation-delay: 625ms;
-              }
-              .dot-7 {
-                animation-delay: 750ms;
-              }
-              .dot-8 {
-                animation-delay: 875ms;
-              }
+[class^=dot-] {
+  animation: 0.5s ease-in fade-in infinite alternate;
+}
+.dot-1 { animation-delay: 0s; }
+.dot-2 { animation-delay: 125ms; }
+.dot-3 { animation-delay: 250ms; }
+.dot-4 { animation-delay: 375ms; }
+.dot-5 { animation-delay: 500ms; }
+.dot-6 { animation-delay: 625ms; }
+.dot-7 { animation-delay: 750ms; }
+.dot-8 { animation-delay: 875ms; }
             </code></pre>
 
             <div id="chase-1" class="code-preview">
@@ -193,11 +177,11 @@
 
           <section>
             <pre><code class="language-scss">
-              @for $i from 1 through 8 {
-                .dot-#{$i} {
-                  animation-delay: 125ms * ($i - 1);
-                }
-              }
+@for $i from 1 through 8 {
+  .dot-#{$i} {
+    animation-delay: 125ms * ($i - 1);
+  }
+}
             </code></pre>
           </section>
         </section>
@@ -208,14 +192,14 @@
           Animation 4: Bounce
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="bounce-1" contenteditable>
-              @keyframes bounce {
-                  0% { transform: translateY(0); }
-                100% { transform: translateY(-200%); }
-              }
+@keyframes bounce {
+    0% { transform: translateY(0); }
+  100% { transform: translateY(-200%); }
+}
 
-              .ball {
-                animation: 0.4s ease-out bounce infinite alternate;
-              }
+.ball {
+  animation: 0.4s ease-out bounce infinite alternate;
+}
             </code></pre>
 
             <div id="bounce-1" class="code-preview">
@@ -227,25 +211,19 @@
 
           <section>
             <pre><code class="liveCoding css" data-livecoding-id="bounce-2" contenteditable>
-              @keyframes bounce-3rd {
-                  0% { transform: translateY(0); }
-                 17% { transform: translateY(-125%); }
-                 33% { transform: translateY(0); }
-                100% { transform: translateY(0); }
-              }
+@keyframes bounce-3rd {
+    0% { transform: translateY(0); }
+   17% { transform: translateY(-125%); }
+   33% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
 
-              [class^=ball-] {
-                animation: 0.8s ease-out bounce-3rd infinite;
-              }
-              .ball-1 {
-                animation-delay: 0s;
-              }
-              .ball-2 {
-                animation-delay: 150ms;
-              }
-              .ball-3 {
-                animation-delay: 300ms;
-              }
+[class^=ball-] {
+  animation: 0.8s ease-out bounce-3rd infinite;
+}
+.ball-1 { animation-delay: 0s; }
+.ball-2 { animation-delay: 150ms; }
+.ball-3 { animation-delay: 300ms; }
             </code></pre>
 
             <div id="bounce-2" class="code-preview">
