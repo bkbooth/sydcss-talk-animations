@@ -130,6 +130,46 @@
   transform: translateX(40px) rotate(315deg);
 }
 
+.reveal .ball-container {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.reveal .ball-container .ball {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: calc(50% - 15px);
+  bottom: 0;
+  background: white;
+  border-radius: 15px;
+}
+
+.reveal .balls {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.reveal .balls [class^=ball-] {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  bottom: 0;
+  background: white;
+  border-radius: 13px;
+}
+.reveal .balls .ball-1 {
+  left: 0;
+}
+.reveal .balls .ball-2 {
+  left: calc(50% - 13px);
+}
+.reveal .balls .ball-3 {
+  right: 0;
+}
+
 
 /* @keyframes in Reveal.js live coding plugin don't work properly */
 
@@ -152,4 +192,16 @@
 @keyframes fade-in {
     0% { opacity: 0.2; }
   100% { opacity: 1; }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+  100% { transform: translateY(-200%); }
+}
+
+@keyframes bounce-3rd {
+    0% { transform: translateY(0); }
+   17% { transform: translateY(-125%); }
+   33% { transform: translateY(0); }
+  100% { transform: translateY(0); }
 }
