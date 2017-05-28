@@ -12,5 +12,9 @@ Reveal.initialize({
 
     // Speaker notes
     { src: 'plugin/notes/notes.js', async: true },
+
+    // Speaker note server
+    { src: 'socket.io/socket.io.js', async: true },
+    { src: 'plugin/notes-server/client.js', async: true },
   ],
 });
