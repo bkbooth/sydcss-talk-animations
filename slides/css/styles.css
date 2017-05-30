@@ -169,39 +169,3 @@
 .reveal .balls .ball-3 {
   right: 0;
 }
-
-
-/* @keyframes in Reveal.js live coding plugin don't work properly */
-
-@keyframes fade-out-in {
-    0% { opacity: 1; }
-   50% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes fade-out {
-    0% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes rotate {
-    0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes fade-in {
-    0% { opacity: 0.2; }
-  100% { opacity: 1; }
-}
-
-@keyframes bounce {
-    0% { transform: translateY(0); }
-  100% { transform: translateY(-200%); }
-}
-
-@keyframes bounce-3rd {
-    0% { transform: translateY(0); }
-   16% { transform: translateY(-125%); }
-   33% { transform: translateY(0); }
-  100% { transform: translateY(0); }
-}

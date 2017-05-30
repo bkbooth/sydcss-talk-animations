@@ -51,7 +51,12 @@ var LiveCoding = (function() {
       for (var i = 0; i < cssRules.length - 1; i+=4) {
         var selectors = cssRules[i].split(',');
         for (var j = 0; j < selectors.length; j++) {
-          selectors[j] = '#' + demoElementId + ' ' + selectors[j];
+          // MODIFIED: Ben Booth, 30/05/2017
+          // Only prefix class selectors with elementId
+          if (/^\s*\./.test(selectors[j]) || /^\s*\[class/.test(selectors[j])) {
+            selectors[j] = '#' + demoElementId + ' ' + selectors[j];
+          }
+          // END MODIFIED
         }
         cssRules[i] = selectors.join(',');
       }
