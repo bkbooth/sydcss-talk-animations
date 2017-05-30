@@ -38,25 +38,52 @@
 
         <!-- SLIDE: Topic intro -->
         <section>
-          <pre><code class="language-css">@keyframes my-sweet-animation {
-    0%: { /* ... */ }
-   50%: { /* ... */ }
-  100%: { /* ... */ }
-}
+          <section>
+<pre><code class="language-css">@keyframes my-sweet-animation {
+    0% { /* ... */ }
+   50% { /* ... */ }
+  100% { /* ... */ }
+}</code></pre>
+
+            <aside class="notes">
+              There are two basic building blocks for animation with CSS. Firstly the <code>keyframes</code> at-rule, which you define with the at-<code>keyframes</code> keyword, then an identifier or name for the <code>keyframes</code> set, then a list of keyframe steps which define CSS properties for each step.
+            </aside>
+          </section>
+
+          <section>
+            <pre><code class="language-css">@keyframes my-sweet-animation { /* ... */ }
 
 .thing-to-animate {
   /* shorthand */
   animation: 2s my-sweet-animation;
 
   /* individual properties */
-  animation-duration: 2s;
   animation-name: my-sweet-animation;
+  animation-duration: 2s;
   animation-timing-function: ease;
 }</code></pre>
 
-          <aside class="notes">
-            The basic building blocks for animation with CSS are the <code>keyframes</code> at-rule and the <code>animation</code> properties, either the shorthand property or individual properties. You firstly define a <code>keyframes</code> at-rule with the keyword, then an identifier or name for the keyframe set, then a list of keyframe steps which define CSS properties for each step. To use the keyframes in an animation you use the <code>animation</code> properties to define an animation using the specified <code>keyframes</code>.
-          </aside>
+            <aside class="notes">
+              Secondly the <code>animation</code> properties which you can use in shorthand form, or by using individual sub-properties.
+            </aside>
+          </section>
+
+          <section>
+            <ul style="list-style-type: none;">
+              <li><code>animation-name</code></li>
+              <li><code>animation-duration</code></li>
+              <li><code>animation-delay</code></li>
+              <li><code>animation-direction</code></li>
+              <li><code>animation-iteration-count</code></li>
+              <li><code>animation-timing-function</code></li>
+              <li><code>animation-fill-mode</code></li>
+              <li><code>animation-play-state</code></li>
+            </ul>
+
+            <aside class="notes">
+              There are only 8 animation sub-properties, but they provide a great deal of flexibility.
+            </aside>
+          </section>
         </section>
         <!-- /SLIDE -->
 
