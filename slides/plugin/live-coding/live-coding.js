@@ -3,87 +3,87 @@
  * Vincent De Oliveira
  */
 var LiveCoding = (function() {
-	
-	// All <code> with ".liveCoding" class
-	var codeElementList = document.querySelectorAll('code.liveCoding');
 
-	for (var i = 0; i < codeElementList.length; i++) {
-		update(codeElementList[i]);
-		
-		// Remove autocorrect feature from the input.
-		codeElementList[i].setAttribute('autocorrect', 'off');
-		codeElementList[i].setAttribute('autocapitalize', 'off');
-		codeElementList[i].setAttribute('autocomplete', 'off');
-		codeElementList[i].spellcheck = false;
+  // All <code> with ".liveCoding" class
+  var codeElementList = document.querySelectorAll('code.liveCoding');
 
-		// update when keyUp
-		codeElementList[i].addEventListener('keyup', function() {
-			update(this);
-		});
-	}
+  for (var i = 0; i < codeElementList.length; i++) {
+    update(codeElementList[i]);
 
-	/**
-	 * Update
-	 */
-	function update(codeElement) {
+    // Remove autocorrect feature from the input.
+    codeElementList[i].setAttribute('autocorrect', 'off');
+    codeElementList[i].setAttribute('autocapitalize', 'off');
+    codeElementList[i].setAttribute('autocomplete', 'off');
+    codeElementList[i].spellcheck = false;
 
-		var demoElementId = codeElement.attributes.getNamedItem('data-livecoding-id').nodeValue;
-		var demoElement = document.getElementById(demoElementId);
+    // update when keyUp
+    codeElementList[i].addEventListener('keyup', function() {
+      update(this);
+    });
+  }
 
-		// highlight.js and prism.js
-		var isCSS = hasAtLeastOneClass(codeElement, ['css', 'language-css']);
-		var isMarkup = hasAtLeastOneClass(codeElement, ['xml', 'language-markup', 'language-xml', 'language-html', 'language-svg']);
+  /**
+   * Update
+   */
+  function update(codeElement) {
 
-		// if it's CSS
-		if (isCSS) {
-			var cssRules = codeElement.textContent;
+    var demoElementId = codeElement.attributes.getNamedItem('data-livecoding-id').nodeValue;
+    var demoElement = document.getElementById(demoElementId);
 
-			// if PrefixFree is here
-			if (typeof PrefixFree !== "undefined") {
-				// prefix code
-				cssRules = PrefixFree.prefixCSS(cssRules);
-			}
+    // highlight.js and prism.js
+    var isCSS = hasAtLeastOneClass(codeElement, ['css', 'language-css']);
+    var isMarkup = hasAtLeastOneClass(codeElement, ['xml', 'language-markup', 'language-xml', 'language-html', 'language-svg']);
 
-			// cleanup
-			cssRules = cssRules.replace(/^\s+/g,'').replace(/\s+$/g,'');
-			var reg = /(\{|\})/g;
-			cssRules = cssRules.split(reg);
-			for (var i = 0; i < cssRules.length - 1; i+=4) {
-				var selectors = cssRules[i].split(',');
-				for (var j = 0; j < selectors.length; j++) {
-					selectors[j] = '#' + demoElementId + ' ' + selectors[j];
-				}
-				cssRules[i] = selectors.join(',');
-			}
-			cssRules = cssRules.join('');
+    // if it's CSS
+    if (isCSS) {
+      var cssRules = codeElement.textContent;
 
-			// if <style id="liveCoding_9999"> doesn't exist, create it
-			var styleElement = document.getElementById('liveCoding_' + demoElementId);
-			if (styleElement === null) {
-				styleElement = document.createElement('style');
-				styleElement.setAttribute('id','liveCoding_' + demoElementId);
-				insertAfter(demoElement, styleElement);
-			}
-			styleElement.innerHTML = cssRules;
+      // if PrefixFree is here
+      if (typeof PrefixFree !== "undefined") {
+        // prefix code
+        cssRules = PrefixFree.prefixCSS(cssRules);
+      }
 
-		// else, if it's markup (HTML, SVG, XML...)
-		} else if (isMarkup) {
-			// replace content 
-			demoElement.innerHTML = codeElement.textContent;
-		}
-		
-		function hasAtLeastOneClass(element, classList) {
-			for (var i=0; i<classList.length; i++) {
-				if (element.classList.contains(classList[i])) {
-					return true;
-				}
-			}
-			return false;
-		}
-		
-		function insertAfter(referenceNode, newNode) {
-			referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-		}
-	}
+      // cleanup
+      cssRules = cssRules.replace(/^\s+/g,'').replace(/\s+$/g,'');
+      var reg = /(\{|\})/g;
+      cssRules = cssRules.split(reg);
+      for (var i = 0; i < cssRules.length - 1; i+=4) {
+        var selectors = cssRules[i].split(',');
+        for (var j = 0; j < selectors.length; j++) {
+          selectors[j] = '#' + demoElementId + ' ' + selectors[j];
+        }
+        cssRules[i] = selectors.join(',');
+      }
+      cssRules = cssRules.join('');
+
+      // if <style id="liveCoding_9999"> doesn't exist, create it
+      var styleElement = document.getElementById('liveCoding_' + demoElementId);
+      if (styleElement === null) {
+        styleElement = document.createElement('style');
+        styleElement.setAttribute('id','liveCoding_' + demoElementId);
+        insertAfter(demoElement, styleElement);
+      }
+      styleElement.innerHTML = cssRules;
+
+      // else, if it's markup (HTML, SVG, XML...)
+    } else if (isMarkup) {
+      // replace content
+      demoElement.innerHTML = codeElement.textContent;
+    }
+
+    function hasAtLeastOneClass(element, classList) {
+      for (var i=0; i<classList.length; i++) {
+        if (element.classList.contains(classList[i])) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function insertAfter(referenceNode, newNode) {
+      referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    }
+  }
 
 })();
