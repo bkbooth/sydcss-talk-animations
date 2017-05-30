@@ -89,8 +89,11 @@
 
         <!-- SLIDE: Animation 1 - fading -->
         <section>
-          Fading
           <section>
+            <div id="fading-1" class="code-preview">
+              <div class="circle"></div>
+            </div>
+
             <pre><code class="liveCoding css" data-livecoding-id="fading-1" contenteditable>@keyframes fade-out-in {
     0% { opacity: 1; }
    50% { opacity: 0; }
@@ -101,16 +104,16 @@
   animation: 1s fade-out-in infinite;
 }</code></pre>
 
-            <div id="fading-1" class="code-preview">
-              <div class="circle"></div>
-            </div>
-
             <aside class="notes">
               Starting with this basic fading dot animation, which is just a square with rounded corners where the <code>opacity</code> is being faded in and out, I've defined the <code>keyframes</code> at-rule with 3 steps going from completely visible, to completely invisible, then back to completely visible. To use these <code>keyframes</code> to animate the dot, I've used the <code>animation</code> shorthand property to set the duration, the name matching the <code>keyframes</code> at-rule and an iteration count which is <i>'infinite'</i>. These properties are shorthand for the <code>animation-duration</code>, <code>animation-name</code> and <code>animation-iteration-count</code> properties. <code>animation-iteration-count</code> should be a number or <i>'infinite'</i>, but it defaults to <i>'1'</i> <b>(!!!LIVE CODE!!!)</b>. We want to loop the animation forever so we'll be using <i>'infinite'</i> for all of these animations. You can easily tweak the speed of the animation by modifying the <code>animation-duration</code> property which takes seconds or milliseconds values <b>(!!!LIVE CODE!!!)</b>.
             </aside>
           </section>
 
           <section>
+            <div id="fading-2" class="code-preview">
+              <div class="circle"></div>
+            </div>
+
             <pre><code class="liveCoding css" data-livecoding-id="fading-2" contenteditable>@keyframes fade-out {
     0% { opacity: 1; }
   100% { opacity: 0; }
@@ -119,10 +122,6 @@
 .circle {
   animation: 0.5s fade-out infinite alternate;
 }</code></pre>
-
-            <div id="fading-2" class="code-preview">
-              <div class="circle"></div>
-            </div>
 
             <aside class="notes">
               In this case the <code>keyframes</code> definition can actually be simplified to just the start and end states by setting the <code>animation-direction</code> property to <i>'alternate'</i>. Now that a full animation loop actually requires two passes through the <code>keyframes</code>, firstly forward then in reverse, the <code>animation-duration</code> should also be halved. Using an approach like this means that you can define more generic <code>keyframes</code> at-rules such as <i>'fade-out'</i> that can be utilised by multiple animations and/or transitions, whenever anything needs to be faded in or out. You may also see <code>from</code> and <code>to</code> instead of percentages in <code>keyframes</code> at-rules, <b>(!!!LIVE CODE!!!)</b> these are just aliases for <i>'0%'</i> and <i>'100%'</i> respectively.
@@ -133,8 +132,11 @@
 
         <!-- SLIDE: Animation 2 - spinning -->
         <section>
-          Spinning
           <section>
+            <div id="spinning-1" class="code-preview" style="margin-bottom: 50px;">
+              <div class="star"></div>
+            </div>
+
             <pre><code class="liveCoding css" data-livecoding-id="spinning-1" contenteditable>@keyframes rotate {
     0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -144,29 +146,25 @@
   animation: 2.5s linear rotate infinite;
 }</code></pre>
 
-            <div id="spinning-1" class="code-preview">
-              <div class="star"></div>
-            </div>
-
             <aside class="notes">
               Spinners are another fairly basic animation that can be defined really easily in CSS. Firstly the <code>keyframes</code> at-rule still only needs to define start and end states but I've introduced the <code>transform</code> property now to handle the rotation. <code>transform</code> provides a great toolset functions for 2D and 3D translating (as in movement), scaling and rotation. It's enough for a talk on it's own but we'll just dip our toes in here. <i>~~It is worth mentioning that you should always prefer animating and transitioning elements with <code>transform</code> because it doesn't trigger a reflow of the layout, which is again a topic for another day.~~</i> The <i>'rotate'</i> <code>keyframes</code> at-rule just sets the starting rotation to <i>'0deg'</i> and the ending rotation to <i>'360deg'</i>. The <code>animation</code> shorthand property adds one new value <i>'linear'</i>, this is shorthand for the <code>animation-timing-function</code> property which defaults to <i>'ease'</i> to ease the animation in and out. This caused the fading dot to "breathe" in and out <b>(???briefly back to SLIDE 4a)</b>, but for rotation we want a nice even linear animation.
             </aside>
           </section>
 
           <section>
-            <pre><code class="liveCoding css" data-livecoding-id="spinning-2" contenteditable>.circle-1 {
-  animation: 1s linear rotate infinite;
-}
-.circle-2 {
-  animation: 60s linear rotate infinite;
-}</code></pre>
-
             <div id="spinning-2" class="code-preview">
               <div class="circles">
                 <div class="circle-1"></div>
                 <div class="circle-2"></div>
               </div>
             </div>
+
+            <pre><code class="liveCoding css" data-livecoding-id="spinning-2" contenteditable>.circle-1 {
+  animation: 1s linear rotate infinite;
+}
+.circle-2 {
+  animation: 60s linear rotate infinite;
+}</code></pre>
 
             <aside class="notes">
               <p>Using the same simple <code>keyframes</code> at-rule you can make more advanced animations by just combining things that we've already looked at. This clock-like set of concentric circles isn't telling the actual time, but the inner circle is rotating once a minute and the outer one is rotating once a second. Another value that you can assign to the <code>animation-direction</code> property is <i>'reverse'</i> <b>(!!!LIVE CODE!!!)</b> which as you can probably guess, plays the <code>keyframes</code> in reverse. This is now definitely not a clock, but it's... interesting?</p>
@@ -176,40 +174,22 @@
           </section>
 
           <section>
-            <pre><code class="liveCoding css" data-livecoding-id="spinning-3" contenteditable>.doge {
-  animation: 1.5s linear rotate infinite;
-}</code></pre>
-
             <div id="spinning-3" class="code-preview">
               <div class="doge">
                 <img data-src="images/doge.png">
               </div>
             </div>
+
+            <pre><code class="liveCoding css" data-livecoding-id="spinning-3" contenteditable>.doge {
+  animation: 1.5s linear rotate infinite;
+}</code></pre>
           </section>
         </section>
         <!-- /SLIDE -->
 
         <!-- SLIDE: Animation 3 - chasing -->
         <section>
-          Chaser
           <section>
-            <pre><code class="liveCoding css" data-livecoding-id="chaser-1" contenteditable>@keyframes fade-in {
-    0% { opacity: 0.2; }
-  100% { opacity: 1; }
-}
-
-[class^=dot-] {
-  animation: 0.5s ease-in fade-in infinite alternate;
-}
-.dot-1 { animation-delay: 0s; }
-.dot-2 { animation-delay: 125ms; }
-.dot-3 { animation-delay: 250ms; }
-.dot-4 { animation-delay: 375ms; }
-.dot-5 { animation-delay: 500ms; }
-.dot-6 { animation-delay: 625ms; }
-.dot-7 { animation-delay: 750ms; }
-.dot-8 { animation-delay: 875ms; }</code></pre>
-
             <div id="chaser-1" class="code-preview">
               <div class="dots">
                 <div class="dot-1"></div>
@@ -222,6 +202,23 @@
                 <div class="dot-8"></div>
               </div>
             </div>
+
+            <pre><code class="liveCoding css" data-livecoding-id="chaser-1" contenteditable>@keyframes fade-in {
+    0% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+[class^=dot-] {
+  animation: 500ms ease-in fade-in infinite alternate;
+}
+.dot-1 { animation-delay: 0s; }
+.dot-2 { animation-delay: 125ms; }
+.dot-3 { animation-delay: 250ms; }
+.dot-4 { animation-delay: 375ms; }
+.dot-5 { animation-delay: 500ms; }
+.dot-6 { animation-delay: 625ms; }
+.dot-7 { animation-delay: 750ms; }
+.dot-8 { animation-delay: 875ms; }</code></pre>
 
             <aside class="notes">
               For this animation I've arranged a series of small dots around a circle and used a similar <code>keyframes</code> at-rule as earlier, just fading opacity in and out to 20% opacity. The main <code>animation</code> shorthand property which is assigned to all of the individual dots with this funky selector adds nothing new, but I've set an <code>animation-delay</code> on each of the dots manually to offset each of them starting by an 1/8th of a second. As you can see it's a little tedious having to manually set the offset for each dot, especially if you wanted to change the speed of the whole animation.
@@ -253,24 +250,23 @@ $number_of_dots: 8;
 
         <!-- SLIDE: Animation 4 - bouncing -->
         <section>
-          Bouncing
           <section>
+            <div id="bouncing-1" class="code-preview">
+              <div class="ball-container">
+                <div class="ball"></div>
+              </div>
+            </div>
+
             <pre><code class="liveCoding css" data-livecoding-id="bouncing-1" contenteditable>@keyframes bounce {
     0% { transform: translateY(0); }
   100% { transform: translateY(-200%); }
 }
 
 .ball {
-  animation: 0.3s bounce infinite alternate;
+  animation: 300ms bounce infinite alternate;
   animation-timing-function:
     cubic-bezier(0.38, 0.17, 0.11, 0.85);
 }</code></pre>
-
-            <div id="bouncing-1" class="code-preview">
-              <div class="ball-container">
-                <div class="ball"></div>
-              </div>
-            </div>
 
             <aside class="notes">
               This bouncing dot animation uses yet another fairly simple <code>keyframes</code> at-rule, it's just using the <code>transform</code> property to translate the dot up. To make it look a little more "bouncy" I've defined a <i>'cubic-bezier'</i> function for the <code>animation-timing-function</code>. Don't worry if that looks a little daunting to you, you shouldn't ever need to write one of these by hand...
@@ -286,6 +282,14 @@ $number_of_dots: 8;
           </section>
 
           <section>
+            <div id="bouncing-2" class="code-preview">
+              <div class="balls">
+                <div class="ball-1"></div>
+                <div class="ball-2"></div>
+                <div class="ball-3"></div>
+              </div>
+            </div>
+
             <pre><code class="liveCoding css" data-livecoding-id="bouncing-2" contenteditable>@keyframes bounce-3rd {
     0% { transform: translateY(0); }
    16% { transform: translateY(-125%); }
@@ -294,19 +298,11 @@ $number_of_dots: 8;
 }
 
 [class^=ball-] {
-  animation: 0.8s ease-out bounce-3rd infinite;
+  animation: 800ms ease-out bounce-3rd infinite;
 }
 .ball-1 { animation-delay: 0s; }
 .ball-2 { animation-delay: 150ms; }
 .ball-3 { animation-delay: 300ms; }</code></pre>
-
-            <div id="bouncing-2" class="code-preview">
-              <div class="balls">
-                <div class="ball-1"></div>
-                <div class="ball-2"></div>
-                <div class="ball-3"></div>
-              </div>
-            </div>
 
             <aside class="notes">
               Finally, by defining a slightly more complex <code>keyframes</code> at-rule which performs the translation in just the first 1/3rd of the time, and by adding an <code>animation-delay</code> to each of a series of dots I've these excitedly impatient looking dots.

@@ -1,26 +1,26 @@
 .reveal .code-preview {
-  margin-top: 50px;
+  margin-bottom: 40px;
 }
 
 .reveal .circle {
   margin: 0 auto;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background: white;
-  border-radius: 50px;
+  border-radius: 40px;
 }
 
 .reveal .star {
   margin: 0 auto;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background: white;
 }
 .reveal .star:after {
   content: "";
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 70px;
+  height: 70px;
   background: white;
   transform: rotate(45deg);
 }
@@ -133,7 +133,7 @@
 .reveal .ball-container {
   margin: 0 auto;
   width: 100px;
-  height: 100px;
+  height: 90px;
   position: relative;
 }
 .reveal .ball-container .ball {
@@ -149,7 +149,7 @@
 .reveal .balls {
   margin: 0 auto;
   width: 100px;
-  height: 100px;
+  height: 60px;
   position: relative;
 }
 .reveal .balls [class^=ball-] {
