@@ -1,77 +1,91 @@
 # SydCSS Talk Notes
 
-## Intro - personal
+## Intro
 
-_(SLIDE 1)_
+_(SLIDE 1: title, personal details)_
 
-Hi, I'm Ben. I make things on the web for fun and for profit. I'm currently paid to make things on the web by Blake eLearning, they're a great company and if you'd like to be paid to make things on the web too, I recommend having a chat to them. I'm on various social pipes, but my pipe of choice is Twitter. I also have a blog where I write things from time to time, though far less regularly than I'd like to.
+Hi, I'm Ben and I make things for the web. I'm currently paid to make things for the web by Blake eLearning. I'm on Twitter as at-bkbooth11. I also have a blog at bkbooth.me where I write things from time to time, though far less regularly than I'd like to.
 
-I said in my bio that my kid is the cutest, so I feel like I should back that up with a photo, so here she is _(SLIDE 2a)_. But she's 3 in 2 weeks so we're starting to see a lot more of this _(SLIDE 2b)_. (??? REMOVE? Intro too long?) We're also expecting in September so ... something about more sleepless nights or hurt?
+Today we're going to look at CSS animations by looking at some loading animations and spinners.
 
-## Intro - topic
+## Topic intro
 
-_(SLIDE 3)_
+_(SLIDE 2a: `@keyframes` sample)_
 
-??? Start with animations is one of the first things I got excited about with software development and the web?
+There are two basic building blocks for CSS animations. Firstly the `keyframes` at-rule, which you define with the at-`keyframes` keyword, then a name or identifier for the `keyframes` set, then a list of steps which define CSS properties for each step.
 
-??? One of the things that got me into front-end development and I still get excited about is how quickly you can turn around from lines of code to something visible and functioning in front of your eyes. As browsers continue to grow and improve it's become a fantastic execution environment. Recently 
+_(SLIDE 2b: `animation` sample)_
 
-!!!TO REMOVE!!! We spend so much time waiting for things on the web that you'd think we actually like waiting. Ideally we'd never have to wait, but loading spinners and animations are wonderful little UI hints to users of our web applications that things are actually happening. It turns out they're also a pretty neat way to exercise some creative curiosity with the sweet suite of tools provided by the CSS animation API.
+Secondly the `animation` properties which you can use in shorthand form, or by using individual sub-properties.
 
-## Animation 1 - fading dot
+_(SLIDE 2c: animation sub-properties)_
 
-_(SLIDE 4a)_
+There are only 8 animation sub-properties, but they provide a great deal of flexibility.
 
-The basic building blocks for animation with CSS are the `keyframes` at-rule and the `animation` property. Starting with this basic fading dot animation, which is just a square with rounded corners where I'm fading the `opacity` in and out, you can see that you define a `keyframes` at-rule with the keyword, then an identifier or name for the animation, then a list of keyframe steps which define CSS properties for each step. To use these keyframes to animate the dot I'm using the `animation` shorthand property to set the duration, name matching the `keyframes` at-rule which we defined earlier and iteration count which is 'infinite'. These properties are shorthand for the `animation-duration`, `animation-name` and `animation-iteration-count` properties. `animation-iteration-count` can be a number, but it defaults to '1' (!!!LIVE CODE!!!), so we'll be using 'infinite' for all of these animations. You can easily tweak the speed of the animation by modifying the `animation-duration` property (!!!LIVE CODE!!!).
+## Animation 1 - fading
 
-_(SLIDE 4b)_
+_(SLIDE 3a: 3-step fading dot)_
 
-We can actually simplify the keyframes in this case by setting the `animation-direction` property to 'reverse' (??? or 'alternate'). Now the `keyframes` just need to define the start and end properties for the animation, and the `animation` property can handle the rest of the behaviour. This also now means that the 'fade' `keyframes` at-rule is more generic and can be used anytime we need to fade something in or out. You may also see `from` and `to` instead of percentages in a `keyframes` at-rule, (!!!LIVE CODE!!!) these are just aliases for '0%' and '100%' respectively.
+Let's start with a simple fading dot animation, which is just a square with rounded corners where the `opacity` is being faded in and out. I've defined the `keyframes` at-rule with 3 steps going from completely visible, to completely invisible, then back to completely visible. To use these `keyframes` to animate the dot, I've used the `animation` shorthand property to set the `animation-duration` to 1 second; the `animation-name` to _'fade-in-out'_ which matches `keyframes` at-rule; and _'infinite'_ for the `animation-iteration-count`. `animation-iteration-count` can be a number or _'infinite'_ and defaults to 1. **(!!!LIVE EDIT!!!)** As you can see this isn't very useful for this type of animation, so I'll be using _'infinite'_ for all of these animations. You can tweak the speed of the animation by modifying the `animation-duration` property **(!!!LIVE EDIT!!!)** which takes seconds or milliseconds values.
 
-## Animation 2 - basic spinner
+_(SLIDE 3b: 2-step fading dot)_
 
-_(SLIDE 5a)_
+In this case the `keyframes` at-rule can be simplified to just the start and end steps by setting the `animation-direction` property to _'alternate'_, which means the animation goes forward through the `keyframes` steps, then back through in reverse. Now that a full animation loop goes through the `keyframes` twice, the `animation-duration` should be halved. This approach means that you can define more generic and reusable `keyframes` at-rules. You may also see _'from'_ **(!!!LIVE EDIT!!!)** and _'to'_ instead of percentages for `keyframes` steps, these are just aliases for _'0%'_ and _'100%'_ respectively. I personally prefer to stick with percentage steps.
 
-Spinners are another fairly basic animation that can be defined really easily in CSS. Firstly the `keyframes` at-rule still only needs to define a start and end but we're introducing the `transform` property now to handle the rotation. `transform` provides a great toolset of transform functions for 2D and 3D translating (as in movement), scaling and rotation. It's enough for a talk on it's own but we'll just dip our toes in here, it's worth mentioning that you should always prefer animating and transitioning elements with `transform` because it doesn't trigger a reflow of the layout, which is again a topic for another day. The 'rotate' `keyframe` at-rule sets the starting rotation to '0deg' and the ending rotation to '360deg'. The `animation` shorthand property adds one new value 'linear', this is shorthand for the `animation-timing-function` property which defaults to 'ease' which eases the animation in and out. This caused the fading dot to "breathe" in and out (???briefly back to SLIDE 4a), but for rotation we want a nice even linear animation.
+## Animation 2 - spinning
 
-With a basic spinner we can rotate whatever we want fairly easily...
+_(SLIDE 4a: spinning star)_
 
-_(SLIDE 5b)_
+Spinners are another simple animation that can be defined easily in CSS. I've introduced the `transform` property to handle the rotation, `transform` provides a great toolset functions for 2D and 3D translating (as in movement), scaling and rotation. It's enough for a talk on it's own but we'll just dip our toes in here. The _'rotate'_ `keyframes` at-rule just sets the starting rotation to _'0deg'_ and the ending rotation to _'360deg'_. The `animation` shorthand property now has the `animation-timing-function` property set to _'linear'_. `animation-timing-function` defaults to _'ease'_ to ease the animation in and out. This caused the fading dot to "breathe" in and out **(!!!QUICKLY BACK TO LAST SLIDE!!!)**. If I set it to _'ease'_ **(!!!LIVE EDIT!!!)** here it speeds up and slows down, for rotation you want a nice even _'linear'_ animation.
 
-_(SLIDE 5c)_
+_(SLIDE 4b: concentric circles)_
 
-We can also do more advanced animations without introducing any new properties but just building on what we already know, these are just concentric circles with a dot moving around each, because rotating circles aren't exactly exciting on their own. The second circle is just reversing the same animation as the other two.
+Using the same rotation `keyframes` at-rule you can create more complex animations by just combining things we've already looked at. These clock-like concentric circles aren't telling us the actual time, but the outer circle is rotating once a second and the inner circle is rotating once a minute. Another value that you can set for the `animation-direction` property is _'reverse'_ **(!!!LIVE EDIT!!!)** which as you can probably guess, plays the `keyframes` in reverse. I'll speed it up to make it more obvious. Now it's nothing like a clock, but it's... interesting?
 
-## Animation 3 - pulsing series of dots
+You can use the same `keyframes` to rotate pretty much anything you want...
 
-_(SLIDE 6a)_
+_(SLIDE 4c: spinning doge)_
 
-For this pulsing series of dots I've made the `keyframes` at-rule slightly more complex by changing the `opacity` property like we did with the 'fade' `keyframes` at-rule earlier, but also using the `transform` property to scale the dots up slightly at full opacity. I'm introducing the `animation-delay` property to offset the start of the animation for each dot. As you can see this is a little complicated, especially if you want to change the timing of the overall animation, you'll need to update the offset for each element.
+...like doge.
 
-_(SLIDE 6b)_
+## Animation 3 - chasing
 
-If you're using SASS or something similar, you can simplify it with something like this. I've set the overall animation duration in a variable, then loop over each of the dots with a `for` loop and calculate the offset for each dot.
+_(SLIDE 5a: chasing dots)_
 
-## Animation 4 - bouncing dots
+For this animation I've arranged a series of small dots around a circle and used a similar `keyframes` at-rule as earlier, fading the dots in and out to 20% opacity. The main `animation` shorthand property adds nothing new and is being applied to all of the individual dots with this fun little selector. I've set an `animation-delay` for each of the dots to offset each of them starting by an 1/8th of a second. As you can see it's a little tedious having to manually set the offset for each dot, especially if you wanted to change the speed of the whole animation.
 
-_(SLIDE 7a)_
+_(SLIDE 5b: SASS example)_
 
-This bouncing dot uses another fairly simple `keyframes` at-rule, just using the `transform` property to translate the dot up. The interesting thing with the `animation` property here is the use of a custom timing function. If that looks confusing to you, don't worry, you shouldn't ever need to write one of these by hand. Chrome (and possibly other browsers?) has an awesome bezier curve editor where you can just drag some dots and lines to create the animation you want and it will write the timing function for you. I wanted something that accelerates up quickly and starts falling slowly.
+If you're using SASS or something similar, you can simplify this by setting the desired animation speed and the number of dots in variables. Halve the animation speed for the `animation` property definition. Then loop through the number of dots and calculate the `animation-delay` for each dot using the desired animation speed, number of dots and current iteration variables.
 
-_(SLIDE 7b)_
+## Animation 4 - bouncing
 
-Finally, by using `animation-delay` here too we can get a nice little series of bouncing dots.
+_(SLIDE 6a: single bouncing dot)_
 
-## Outro
+This bouncing dot animation uses yet another fairly simple `keyframes` at-rule, it's just using the `transform` property to translate the dot up and down. To make it look more "bouncy" I've defined a _'cubic-bezier'_ function for the `animation-timing-function` property. If that looks a little daunting to you, don't worry, I didn't actually write this, and you should never need to write one of these by hand...
 
-_(SLIDE 8)_
+_(SLIDE 6b: Chrome dev tools screenshot)_
 
-It's worth mentioning that most of what I've talked about is relatively new to the CSS spec and browser support is mixed. Depending what browsers you need to target though you'll get a lot of mileage out of just using something like autoprefixer to process your CSS and automatically add any required vendor prefixes like `-webkit`, `-moz`, etc.
+Chrome (and possibly other browsers?) has an awesome bezier curve editor where you can just drag some dots to visually create the cubic-bezier curve and it will write the cubic-bezier function for you.
 
-_(SLIDE 9)_
+_(SLIDE 6c: bouncing dot series)_
 
-If you're interested in learning more about any of these, MDN is a great learning resources for understanding the CSS properties, but especially some of the more detailed guides such as for Animations and Transitions.
+Finally, to create this excitedly impatient series of dots, I've defined a slightly more complex `keyframes` at-rule which performs the translation up and down in just the first 1/3rd of the time. I've also set an `animation-delay` for each of the dots in the series to offset them starting.
 
-_(SLIDE 10)_
+## Browser support
 
-Thanks for listening, hopefully I've helped sparked some interest and some of you will dig into what's possible with animations and other emerging browser capabilities.
+_(SLIDE 7: Caniuse and MDN screenshots)_
+
+Most of what I've talked about today is relatively new to the CSS spec but support in modern browsers is actually really good. Depending what browsers you need to target though you'll get a lot of mileage out of using autoprefixer to process your CSS and automatically add any required vendor prefixes like `-webkit`, `-moz`, etc.
+
+## Follow-up
+
+_(SLIDE 8: MDN links)_
+
+MDN is a great learning resources for understanding the CSS properties and rules. There's also a really helpful guide on using CSS animations.
+
+## Thanks
+
+_(SLIDE 9: thanks)_
+
+Thanks to David and Fiona for giving us this opportunity, and thanks to all of you for listening.
