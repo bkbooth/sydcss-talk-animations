@@ -34,8 +34,8 @@
               <li>I'm Ben and I make things for the web</li>
               <li>currently paid by Blake eLearning</li>
               <li>Twitter at-bkbooth11</li>
-              <li>blog bkbooth.me, write sometimes, not enough</li>
-              <li>look at CSS animations by looking at loading animations and spinners</li>
+              <li>blog bkbooth.me, don't write enough</li>
+              <li>talk about CSS animations by looking at loading animations and spinners</li>
             </ul>
           </aside>
         </section>
@@ -56,7 +56,7 @@
               <ul>
                 <li>two basic building blocks</li>
                 <li><code>keyframes</code> at-rule</li>
-                <li>define with at<code>keyframes</code> keyword</li>
+                <li>define with at-<code>keyframes</code> keyword</li>
                 <li>name or identifier</li>
                 <li>list of steps which define CSS properties</li>
               </ul>
@@ -129,7 +129,7 @@
 
             <aside class="notes">
               <ul>
-                <li>fading dot, square with rounded corners, opacity fading in and out</li>
+                <li>fading dot, opacity fading in and out</li>
                 <li><code>keyframes</code> at-rule with 3 steps, visible, invisible, back to visible</li>
                 <li><code>animation</code> shorthand to set <code>animation-duration</code>, <code>animation-name</code> and <code>animation-iteration-count</code></li>
                 <li><b>LIVE EDIT</b> show default <code>animation-iteration-count</code></li>
@@ -160,7 +160,6 @@
                 <li>simplify <code>keyframes</code> at-rule to start and end steps</li>
                 <li>set <code>animation-direction</code> to 'alternate', forward then reverse</li>
                 <li>halved <code>animation-duration</code></li>
-                <li>more generic and reusable <code>keyframes</code> at-rules</li>
                 <li><b>LIVE EDIT</b> show <i>'from'</i> and <i>'to'</i> instead of percentages</li>
               </ul>
             </aside>
@@ -288,7 +287,7 @@
             <aside class="notes">
               <ul>
                 <li>arranged a series of small dots around a circle</li>
-                <li>similar <code>keyframes at-rule as earlier, fade dots in and out to 20% opacity</code></li>
+                <li>similar <code>keyframes</code> at-rule as earlier, fade dots in and out to 20% opacity</li>
                 <li>adds nothing new to <code>animation</code> shorthand, fun selector</li>
                 <li>set <code>animation-delay</code> for each dot to offset starting by 1/8th second</li>
                 <li>tedious manually setting, especially to change speed of animation</li>
@@ -316,7 +315,7 @@
 
             <aside class="notes">
               <ul>
-                <li>using SASS or similar, store desired animation speend and number of dots in variables</li>
+                <li>using SASS or similar, store desired animation speed and number of dots in variables</li>
                 <li>halve animation speed for <code>animation</code> property</li>
                 <li>loop through number of dots, calculate the <code>animation-delay</code> for each dot using desired animation speed, number of dots and current iteration variables</li>
               </ul>
@@ -350,7 +349,7 @@
             <aside class="notes">
               <ul>
                 <li>another fairly simple <code>keyframes</code> at-rule</li>
-                <li><code>transform</code> to translate up and down</li>
+                <li><code>transform</code> to translate up, <i>'alternate'</i> to animate up and down</li>
                 <li>make more "bouncy", defined <i>'cubic-bezier'</i> function for <code>animation-timing-function</code> property</li>
                 <li>looks daunting, I didn't write, you shouldn't either...</li>
               </ul>
@@ -362,7 +361,7 @@
 
             <aside class="notes">
               <ul>
-                <li>Chrome (and others?) bezier curve editor</li>
+                <li>Chrome bezier curve editor</li>
                 <li>drag dots to visually create the cubic bezier curve, writes function for you</li>
               </ul>
             </aside>
@@ -446,7 +445,7 @@
 
         <!-- SLIDE: Thanks -->
         <section>
-          <h3>🎉 Thanks for listening 🎉</h3>
+          <h3>🎉 <br> Thanks for listening</h3>
 
           <aside class="notes">
             <ul>
