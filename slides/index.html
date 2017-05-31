@@ -57,7 +57,7 @@
   /* shorthand */
   animation: 2s my-sweet-animation;
 
-  /* individual properties */
+  /* individual sub-properties */
   animation-name: my-sweet-animation;
   animation-duration: 2s;
   animation-timing-function: ease;
@@ -124,7 +124,7 @@
 }</code></pre>
 
             <aside class="notes">
-              In this case the <code>keyframes</code> definition can actually be simplified to just the start and end states by setting the <code>animation-direction</code> property to <i>'alternate'</i>. Now that a full animation loop actually requires two passes through the <code>keyframes</code>, firstly forward then in reverse, the <code>animation-duration</code> should also be halved. Using an approach like this means that you can define more generic <code>keyframes</code> at-rules such as <i>'fade-out'</i> that can be utilised by multiple animations and/or transitions, whenever anything needs to be faded in or out. You may also see <code>from</code> and <code>to</code> instead of percentages in <code>keyframes</code> at-rules, <b>(!!!LIVE CODE!!!)</b> these are just aliases for <i>'0%'</i> and <i>'100%'</i> respectively.
+              In this case the <code>keyframes</code> at-rule definition can actually be simplified to just the start and end states by setting the <code>animation-direction</code> property to <i>'alternate'</i>. Now that a full animation loop actually requires two passes through the <code>keyframes</code>, firstly forward then in reverse, the <code>animation-duration</code> should also be halved. Using an approach like this means that you can define more generic <code>keyframes</code> at-rules such as <i>'fade-out'</i> that can be utilised by multiple animations and/or transitions, whenever anything needs to be faded in or out. You may also see <code>from</code> and <code>to</code> instead of percentages in <code>keyframes</code> at-rules, <b>(!!!LIVE CODE!!!)</b> these are just aliases for <i>'0%'</i> and <i>'100%'</i> respectively. I personally prefer to just stick with percentage states.
             </aside>
           </section>
         </section>
@@ -147,7 +147,7 @@
 }</code></pre>
 
             <aside class="notes">
-              Spinners are another fairly basic animation that can be defined really easily in CSS. Firstly the <code>keyframes</code> at-rule still only needs to define start and end states but I've introduced the <code>transform</code> property now to handle the rotation. <code>transform</code> provides a great toolset functions for 2D and 3D translating (as in movement), scaling and rotation. It's enough for a talk on it's own but we'll just dip our toes in here. <i>~~It is worth mentioning that you should always prefer animating and transitioning elements with <code>transform</code> because it doesn't trigger a reflow of the layout, which is again a topic for another day.~~</i> The <i>'rotate'</i> <code>keyframes</code> at-rule just sets the starting rotation to <i>'0deg'</i> and the ending rotation to <i>'360deg'</i>. The <code>animation</code> shorthand property adds one new value <i>'linear'</i>, this is shorthand for the <code>animation-timing-function</code> property which defaults to <i>'ease'</i> to ease the animation in and out. This caused the fading dot to "breathe" in and out <b>(???briefly back to SLIDE 4a)</b>, but for rotation we want a nice even linear animation.
+              Spinners are another fairly basic animation that can be defined really simply in CSS. Firstly the <code>keyframes</code> at-rule still only needs to define start and end states. I've introduced the <code>transform</code> property to handle the rotation. <code>transform</code> provides a great toolset functions for 2D and 3D translating (as in movement), scaling and rotation. It's enough for a talk on it's own but we'll just dip our toes in here. The <i>'rotate'</i> <code>keyframes</code> at-rule just sets the starting rotation to <i>'0deg'</i> and the ending rotation to <i>'360deg'</i>. The <code>animation</code> shorthand property now sets the <code>animation-timing-function</code> property to 'linear'. The <code>animation-timing-function</code> defaults to <i>'ease'</i> to ease the animation in and out. This caused the fading dot to "breathe" in and out <b>(???briefly back to SLIDE 4a)</b>, but for rotation we want a nice even linear animation.
             </aside>
           </section>
 
@@ -183,6 +183,10 @@
             <pre><code class="liveCoding css" data-livecoding-id="spinning-3" contenteditable>.doge {
   animation: 1.5s linear rotate infinite;
 }</code></pre>
+
+            <aside class="notes">
+              ...like doge for example.
+            </aside>
           </section>
         </section>
         <!-- /SLIDE -->
@@ -221,7 +225,7 @@
 .dot-8 { animation-delay: 875ms; }</code></pre>
 
             <aside class="notes">
-              For this animation I've arranged a series of small dots around a circle and used a similar <code>keyframes</code> at-rule as earlier, just fading opacity in and out to 20% opacity. The main <code>animation</code> shorthand property which is assigned to all of the individual dots with this funky selector adds nothing new, but I've set an <code>animation-delay</code> on each of the dots manually to offset each of them starting by an 1/8th of a second. As you can see it's a little tedious having to manually set the offset for each dot, especially if you wanted to change the speed of the whole animation.
+              For this animation I've arranged a series of small dots around a circle and used a similar <code>keyframes</code> at-rule as earlier, just fading the dots in and out to 20% opacity. The main <code>animation</code> shorthand property which is assigned to all of the individual dots with this funky selector adds nothing new, but I've set an <code>animation-delay</code> on each of the dots manually to offset each of them starting by an 1/8th of a second. As you can see it's a little tedious having to manually set the offset for each dot, especially if you wanted to change the speed of the whole animation.
             </aside>
           </section>
 
@@ -269,7 +273,7 @@ $number_of_dots: 8;
 }</code></pre>
 
             <aside class="notes">
-              This bouncing dot animation uses yet another fairly simple <code>keyframes</code> at-rule, it's just using the <code>transform</code> property to translate the dot up. To make it look a little more "bouncy" I've defined a <i>'cubic-bezier'</i> function for the <code>animation-timing-function</code>. Don't worry if that looks a little daunting to you, you shouldn't ever need to write one of these by hand...
+              This bouncing dot animation uses yet another fairly simple <code>keyframes</code> at-rule, it's just using the <code>transform</code> property to translate the dot up. To make it look a little more "bouncy" I've defined a <i>'cubic-bezier'</i> function for the <code>animation-timing-function</code> property. Don't worry if that looks a little daunting to you, I didn't actually write this, and you shouldn't ever need to write one of these by hand...
             </aside>
           </section>
 
@@ -305,7 +309,7 @@ $number_of_dots: 8;
 .ball-3 { animation-delay: 300ms; }</code></pre>
 
             <aside class="notes">
-              Finally, by defining a slightly more complex <code>keyframes</code> at-rule which performs the translation in just the first 1/3rd of the time, and by adding an <code>animation-delay</code> to each of a series of dots I've these excitedly impatient looking dots.
+              Finally, by defining a slightly more complex <code>keyframes</code> at-rule which performs the translation in just the first 1/3rd of the time, and by adding an <code>animation-delay</code> property to each of a series of dots I've created these excitedly impatient looking dots.
             </aside>
           </section>
         </section>
@@ -317,7 +321,7 @@ $number_of_dots: 8;
           <p><i>TODO: add links and screenshots of MDN or caniuse browser support</i></p>
 
           <aside class="notes">
-            It's worth mentioning that most of what I've talked about is relatively new to the CSS spec and browser support is mixed. Depending what browsers you need to target though you'll get a lot of mileage out of using autoprefixer to process your CSS and automatically add any required vendor prefixes like <code>-webkit</code>, <code>-moz</code>, etc.
+            It's worth mentioning that most of what I've talked about today is relatively new to the CSS spec and browser support is mixed. Depending what browsers you need to target though you'll get a lot of mileage out of using autoprefixer to process your CSS and automatically add any required vendor prefixes like <code>-webkit</code>, <code>-moz</code>, etc.
           </aside>
         </section>
         <!-- /SLIDE -->
@@ -338,7 +342,7 @@ $number_of_dots: 8;
           <h3>Thanks</h3>
 
           <aside class="notes">
-            Thanks for listening, hopefully I've helped sparked some interest and some of you will dig into what's possible with animations and other emerging browser capabilities.
+            A huge thanks to David and Fiona for giving us this opportunity and for helping push us out of our comfort zone. Also a big thanks to all of you for coming and listening to a bunch of first-time meetup speakers, your support is a huge encouragement.
           </aside>
         </section>
         <!-- /SLIDE -->
