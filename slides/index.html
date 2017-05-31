@@ -30,8 +30,13 @@
           </p>
 
           <aside class="notes">
-            <p>Hi, I'm Ben and I make things for the web. I'm currently paid to make things for the web by Blake eLearning. I'm on Twitter as at-bkbooth11. I also have a blog at bkbooth.me where I write things from time to time, though far less regularly than I'd like to.</p>
-            <p>Today we're going to look at CSS animations by looking at some loading animations and spinners.</p>
+            <ul>
+              <li>I'm Ben and I make things for the web</li>
+              <li>currently paid by Blake eLearning</li>
+              <li>Twitter at-bkbooth11</li>
+              <li>blog bkbooth.me, write sometimes, not enough</li>
+              <li>look at CSS animations by looking at loading animations and spinners</li>
+            </ul>
           </aside>
         </section>
         <!-- /SLIDE -->
@@ -48,7 +53,13 @@
             </code></pre>
 
             <aside class="notes">
-              There are two basic building blocks for CSS animations. Firstly the <code>keyframes</code> at-rule, which you define with the at-<code>keyframes</code> keyword, then a name or identifier for the <code>keyframes</code> set, then a list of steps which define CSS properties for each step.
+              <ul>
+                <li>two basic building blocks</li>
+                <li><code>keyframes</code> at-rule</li>
+                <li>define with at<code>keyframes</code> keyword</li>
+                <li>name or identifier</li>
+                <li>list of steps which define CSS properties</li>
+              </ul>
             </aside>
           </section>
 
@@ -68,7 +79,10 @@
             </code></pre>
 
             <aside class="notes">
-              Secondly the <code>animation</code> properties which you can use in shorthand form, or by using individual sub-properties.
+              <ul>
+                <li><code>animation</code> properties</li>
+                <li>shorthand form or individual sub-properties</li>
+              </ul>
             </aside>
           </section>
 
@@ -85,7 +99,10 @@
             </ul>
 
             <aside class="notes">
-              There are only 8 animation sub-properties, but they provide a great deal of flexibility.
+              <ul>
+                <li>8 animation sub-properties</li>
+                <li>plenty of flexibility</li>
+              </ul>
             </aside>
           </section>
         </section>
@@ -111,7 +128,13 @@
             </code></pre>
 
             <aside class="notes">
-              Let's start with a simple fading dot animation, which is just a square with rounded corners where the <code>opacity</code> is being faded in and out. I've defined the <code>keyframes</code> at-rule with 3 steps going from completely visible, to completely invisible, then back to completely visible. To use these <code>keyframes</code> to animate the dot, I've used the <code>animation</code> shorthand property to set the <code>animation-duration</code> to 1 second; the <code>animation-name</code> to <i>'fade-in-out'</i> which matches <code>keyframes</code> at-rule; and <i>'infinite'</i> for the <code>animation-iteration-count</code>. <code>animation-iteration-count</code> can be a number or <i>'infinite'</i> and defaults to 1. <b>(!!!LIVE EDIT!!!)</b> As you can see this isn't very useful for this type of animation, so I'll be using <i>'infinite'</i> for all of these animations. You can tweak the speed of the animation by modifying the <code>animation-duration</code> property <b>(!!!LIVE EDIT!!!)</b> which takes seconds or milliseconds values.
+              <ul>
+                <li>fading dot, square with rounded corners, opacity fading in and out</li>
+                <li><code>keyframes</code> at-rule with 3 steps, visible, invisible, back to visible</li>
+                <li><code>animation</code> shorthand to set <code>animation-duration</code>, <code>animation-name</code> and <code>animation-iteration-count</code></li>
+                <li><b>LIVE EDIT</b> show default <code>animation-iteration-count</code></li>
+                <li><b>LIVE EDIT</b> show <code>animation-duration</code> changes</li>
+              </ul>
             </aside>
           </section>
 
@@ -132,7 +155,13 @@
             </code></pre>
 
             <aside class="notes">
-              In this case the <code>keyframes</code> at-rule can be simplified to just the start and end steps by setting the <code>animation-direction</code> property to <i>'alternate'</i>, which means the animation goes forward through the <code>keyframes</code> steps, then back through in reverse. Now that a full animation loop goes through the <code>keyframes</code> twice, the <code>animation-duration</code> should be halved. This approach means that you can define more generic and reusable <code>keyframes</code> at-rules. You may also see <i>'from'</i> <b>(!!!LIVE EDIT!!!)</b> and <i>'to'</i> instead of percentages for <code>keyframes</code> steps, these are just aliases for <i>'0%'</i> and <i>'100%'</i> respectively. I personally prefer to stick with percentage steps.
+              <ul>
+                <li>simplify <code>keyframes</code> at-rule to start and end steps</li>
+                <li>set <code>animation-direction</code> to 'alternate', forward then reverse</li>
+                <li>halved <code>animation-duration</code></li>
+                <li>more generic and reusable <code>keyframes</code> at-rules</li>
+                <li><b>LIVE EDIT</b> show <i>'from'</i> and <i>'to'</i> instead of percentages</li>
+              </ul>
             </aside>
           </section>
         </section>
@@ -157,7 +186,14 @@
             </code></pre>
 
             <aside class="notes">
-              Spinners are another simple animation that can be defined easily in CSS. I've introduced the <code>transform</code> property to handle the rotation, <code>transform</code> provides a great toolset functions for 2D and 3D translating (as in movement), scaling and rotation. It's enough for a talk on it's own but we'll just dip our toes in here. The <i>'rotate'</i> <code>keyframes</code> at-rule just sets the starting rotation to <i>'0deg'</i> and the ending rotation to <i>'360deg'</i>. The <code>animation</code> shorthand property now sets the <code>animation-timing-function</code> property to 'linear'. <code>animation-timing-function</code> defaults to <i>'ease'</i> to ease the animation in and out. This caused the fading dot to "breathe" in and out <b>(!!!QUICKLY BACK TO LAST SLIDE!!!)</b>. If I set it to <i>'ease'</i> here it speeds up and slows down, for rotation you always want a nice even linear animation.
+              <ul>
+                <li>introduce <code>transform</code> property to handle rotation</li>
+                <li><code>transform</code> provides toolset for 2D and 3D translating, rotating, scaling</li>
+                <li><i>'rotate'</i> <code>keyframes</code> at-rule starting <i>'0deg'</i>, ending <i>'360deg'</i></li>
+                <li><code>animation-timing-function</code> property set to <i>'linear'</i></li>
+                <li><code>animation-timing-function</code> defaults to <i>'ease'</i></li>
+                <li><b>SHOW LAST SLIDE, THEN LIVE EDIT</b> show rotation with <i>'ease'</i></li>
+              </ul>
             </aside>
           </section>
 
@@ -179,9 +215,14 @@
             </code></pre>
 
             <aside class="notes">
-              <p>Using the same rotation <code>keyframes</code> at-rule you can create more complex animations by just combining things we've already looked at. These clock-like concentric circles aren't telling us the actual time, but the outer circle is rotating once a second and the inner circle is rotating once a minute. Another value that you can set for the <code>animation-direction</code> property is <i>'reverse'</i> <b>(!!!LIVE EDIT!!!)</b> which as you can probably guess, plays the <code>keyframes</code> in reverse. I'll speed it up to make it more obvious. Now it's nothing like a clock, but it's... interesting?</p>
-
-              <p>You can use the same <code>keyframes</code> to rotate pretty much anything you want...</p>
+              <ul>
+                <li>create more complex animations using what we know.</li>
+                <li>concentric circles not telling time, but outer 1s, inner 1m</li>
+                <li><code>animation-direction</code> can be set to <i>'reverse'</i></li>
+                <li><b>LIVE EDIT</b> add <i>'reverse'</i> and increase speed of inner</li>
+                <li>nothing like a clock, but interesting?</li>
+                <li>same rotation <code>keyframes</code> to rotate anything...</li>
+              </ul>
             </aside>
           </section>
 
@@ -199,7 +240,9 @@
             </code></pre>
 
             <aside class="notes">
-              ...like doge.
+              <ul>
+                <li>...like doge</li>
+              </ul>
             </aside>
           </section>
         </section>
@@ -241,7 +284,13 @@
             </code></pre>
 
             <aside class="notes">
-              For this animation I've arranged a series of small dots around a circle and used a similar <code>keyframes</code> at-rule as earlier, fading the dots in and out to 20% opacity. The main <code>animation</code> shorthand property adds nothing new and is being applied to all of the individual dots with this fun little selector. I've set an <code>animation-delay</code> for each of the dots to offset each of them starting by an 1/8th of a second. As you can see it's a little tedious having to manually set the offset for each dot, especially if you wanted to change the speed of the whole animation.
+              <ul>
+                <li>arranged a series of small dots around a circle</li>
+                <li>similar <code>keyframes at-rule as earlier, fade dots in and out to 20% opacity</code></li>
+                <li>adds nothing new to <code>animation</code> shorthand, fun selector</li>
+                <li>set <code>animation-delay</code> for each dot to offset starting by 1/8th second</li>
+                <li>tedious manually setting, especially to change speed of animation</li>
+              </ul>
             </aside>
           </section>
 
@@ -264,7 +313,11 @@
             </code></pre>
 
             <aside class="notes">
-              If you're using SASS or something similar, you can simplify this by setting the desired animation speed and the number of dots in variables. Halve the animation speed for the <code>animation</code> property definition. Then loop through the number of dots and calculate the <code>animation-delay</code> for each dot using the desired animation speed, number of dots and current iteration variables.
+              <ul>
+                <li>using SASS or similar, store desired animation speend and number of dots in variables</li>
+                <li>halve animation speed for <code>animation</code> property</li>
+                <li>loop through number of dots, calculate the <code>animation-delay</code> for each dot using desired animation speed, number of dots and current iteration variables</li>
+              </ul>
             </aside>
           </section>
         </section>
@@ -293,7 +346,12 @@
             </code></pre>
 
             <aside class="notes">
-              This bouncing dot animation uses yet another fairly simple <code>keyframes</code> at-rule, it's just using the <code>transform</code> property to translate the dot up and down. To make it look more "bouncy" I've defined a <i>'cubic-bezier'</i> function for the <code>animation-timing-function</code> property. If that looks a little daunting to you, don't worry, I didn't actually write this, and you should never need to write one of these by hand...
+              <ul>
+                <li>another fairly simple <code>keyframes</code> at-rule</li>
+                <li><code>transform</code> to translate up and down</li>
+                <li>make more "bouncy", defined <i>'cubic-bezier'</i> function for <code>animation-timing-function</code> property</li>
+                <li>looks daunting, I didn't write, you shouldn't either...</li>
+              </ul>
             </aside>
           </section>
 
@@ -301,7 +359,10 @@
             <img data-src="images/cubic-bezier.png" style="margin-top: 60px; width: 60%;">
 
             <aside class="notes">
-              Chrome (and possibly other browsers?) has an awesome bezier curve editor where you can just drag some dots to visually create the cubic-bezier curve and it will write the cubic-bezier function for you.
+              <ul>
+                <li>Chrome (and others?) bezier curve editor</li>
+                <li>drag dots to visually create the cubic bezier curve, writes function for you</li>
+              </ul>
             </aside>
           </section>
 
@@ -331,7 +392,11 @@
             </code></pre>
 
             <aside class="notes">
-              Finally, to create this excitedly impatient series of dots, I've defined a slightly more complex <code>keyframes</code> at-rule which performs the translation up and down in just the first 1/3rd of the time. I've also set an <code>animation-delay</code> for each of the dots in the series to offset them starting.
+              <ul>
+                <li>finally, excitedly impatient series of dots</li>
+                <li>slightly more complex <code>keframes</code> at-rule, performs translation in first 1/3rd of time</li>
+                <li><code>animation-delay</code> for each dot to offset starting</li>
+              </ul>
             </aside>
           </section>
         </section>
@@ -343,7 +408,10 @@
           <img data-src="images/caniuse-animations.png">
 
           <aside class="notes">
-            Most of what I've talked about today is relatively new to the CSS spec but support in modern browsers is actually really good. Depending what browsers you need to target though you'll get a lot of mileage out of using autoprefixer to process your CSS and automatically add any required vendor prefixes like <code>-webkit</code>, <code>-moz</code>, etc.
+            <ul>
+              <li>relatively new to CSS spec, good support in modern browsers</li>
+              <li>depending on requirements, use autoprefixer to process and add vendor prefixes</li>
+            </ul>
           </aside>
         </section>
         <!-- /SLIDE -->
@@ -366,7 +434,10 @@
           </ul>
 
           <aside class="notes">
-            MDN is a great learning resources for understanding the CSS properties and rules. There's also a really helpful guide on using CSS animations.
+            <ul>
+              <li>MDN is a great resource</li>
+              <li>really helpful guide on using CSS animations</li>
+            </ul>
           </aside>
         </section>
         <!-- /SLIDE -->
@@ -376,7 +447,10 @@
           <h3>🎉 Thanks for listening 🎉</h3>
 
           <aside class="notes">
-            Thanks to David and Fiona for giving us this opportunity, and thanks to all of you for listening.
+            <ul>
+              <li>David and Fiona for giving us opportunity</li>
+              <li>everyone for listening</li>
+            </ul>
           </aside>
         </section>
         <!-- /SLIDE -->
