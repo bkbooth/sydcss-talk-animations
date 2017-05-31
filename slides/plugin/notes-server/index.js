@@ -3,6 +3,7 @@ var express   = require('express');
 var fs        = require('fs');
 var io        = require('socket.io');
 var Mustache  = require('mustache');
+var ip        = require('ip');
 
 var app       = express();
 var staticDir = express.static;
@@ -61,7 +62,10 @@ var brown = '\033[33m',
 	green = '\033[32m',
 	reset = '\033[0m';
 
-var slidesLocation = 'http://localhost' + ( opts.port ? ( ':' + opts.port ) : '' );
+// MODIFIED: Ben Booth, 31/05/2017
+// Output IP address instead of 'localhost'
+var slidesLocation = 'http://' + ip.address() + ( opts.port ? ( ':' + opts.port ) : '' );
+// END MODIFIED
 
 console.log( brown + 'reveal.js - Speaker Notes' + reset );
 console.log( '1. Open the slides at ' + green + slidesLocation + reset );
